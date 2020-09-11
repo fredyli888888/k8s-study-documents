@@ -25,7 +25,7 @@ spec:	# 必选，用于定义容器的详细信息
 	command: 
 	- nginx	# 可选，容器启动执行的命令
 	- -g
-	- “daemon off;”
+	- "daemon off;"
 		workingDir: /usr/share/nginx/html	# 可选，容器的工作目录
 		volumeMounts:	# 可选，存储卷配置
 		- name: webroot # 存储卷名称
