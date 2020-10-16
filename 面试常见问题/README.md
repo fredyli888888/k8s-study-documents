@@ -39,7 +39,7 @@
 答： 最高级别：Guaranteed节点资源不够时第一个被杀掉， Burstable第二个被杀掉，BestEffort第一个被杀掉
 
 ### 1.6 flannel和calico（课程安装章节）
-答：如果没有用过flannel可以直接说没有用过flannel，都是用的calico，因为calico性能强大，并且配置简单。Flannel的host-gw虽然性能好，但是只能用于大二层网络，vxlan对内核要求高。因为公司和公有云网络环境不支持BGP，所以目前采用的都是IPIP模式。
+答：如果没有用过flannel可以直接说没有用过flannel，都是用的calico，因为calico性能强大，并且配置简单。Flannel的host-gw虽然性能好，但是只能用于大二层网络，vxlan对内核要求高，并且flannel不支持网络策略，所以采用calico。因为公司和公有云网络环境不支持BGP，所以目前采用的都是IPIP模式。
 
 ### 1.7 Helm优点（课程Helm章节）
 答：大型项目更加方便管理，可以一键创建一个环境，可以对整个项目进行版本升级、回滚，部署更加方便。
