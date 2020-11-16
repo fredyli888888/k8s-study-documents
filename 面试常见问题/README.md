@@ -74,5 +74,7 @@
 ### 3.2 如何对接外部CEPH（课程volume和动态存储章节）
 答：对接的方式有很多，使用Rook可以对接外部ceph，使用volume、pvc和storageClass都可以对接外部ceph。
 
+### 3.3 生产环境的pv回收策略如何选择？
+答：目前pv的回收策略分为recycle、delete、retain，具体用法可以参考课程的pv章节。其中recycle（相当于对数据目录进行rm -rf /xxx/* ，进行回收的时候会创建一个Pod进行rm操作）将被官方使用动态存储供应(dynamic provisioning)逐步替代。所以面试遇到这类问题，可以着重回答delete和retain。其中Delete回收策略一般用于动态存储，比如ceph、GFS这类的，也就是通过StorageClass进行管理创建的pv，Delete的策略也是StorageClass的默认策略，因为当一个项目用到存储时，会通过pvc或者volumeTemplateClaim申请存储，然后后端存储会自动创建pv，所以当你删除pvc或者pv时，就认为你已经不需要这个存储了，就会触发自动删除pv，防止造成存储池存储过多无人使用的垃圾pv。而静态文件建议使用Retain，比如NFS、NAS这类的，因为这些文件一般都是手动管理的，所以最好是尽量保持这些文件的可用性，就算不用了，也是可以根据目录名称进行手动删除。所以retain和delete是用的比较多的。
 
 以上问答只是个人见解，不一定是最好的回答，大家可以自行查阅网上资料。
