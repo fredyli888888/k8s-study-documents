@@ -2,7 +2,7 @@
 #### 1. 学习环境（用于k8s基础的学习）
     a)	2核2G 磁盘40G足矣，可以采用单master多Node，或者多Master无Node（Master节点也可以充当Node节点）
     
-#### 2. 实战环境（用于k8s实战学习，从云原生存储课程开始到最后）
+#### 2. 实战环境（用于k8s实战学习，从进阶部分开始）
     a)	2核4G+磁盘40G+40G，可以采用单Master多Node，
         或者多Master多Node（Master节点也可以充当Node节点，总计可用node节点数为5即可）
 
